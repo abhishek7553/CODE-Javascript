@@ -48,8 +48,8 @@ const readNote = (title) => {
     if(!reqNote){
         console.log(chalk.red.inverse("No note found!"))
     }else{
-        console.log(chalk.italic(reqNote.title))
-        console.log(chalk.bold(reqNote.body))
+        console.log(chalk.italic.inverse(reqNote.title))
+        console.log('- '+chalk.bold(reqNote.body))
     }
 }
 
