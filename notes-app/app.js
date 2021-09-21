@@ -46,7 +46,7 @@ yargs.command({
     command: 'list',
     describe: 'List your notes',
     handler: function () {
-        console.log(chalk.green.inverse("Your Notes!"))
+        console.log(chalk.inverse("Your Notes!"))
         notes.listNotes()
     }
 })
