@@ -1,13 +1,28 @@
 const request = require('request')
 
-const url = 'http://api.weatherstack.com/current?access_key=6253441e4737e681704e1caf5d6dda37&query=37.8267,-122.4233&units=f'
+const geocode = require('./utils/geocode.js')
+const forecast = require('./utils/forecast.js')
 
-request(
-    { url : url, json:true},
-    (error,response)=>{
-        const msg =response.body.current.weather_descriptions[0] + ". It is currently "+response.body.current.temperature+" degree out. There is "+response.body.current.precip+"% chance of rain."
-        console.log(msg)
-
-
+geocode('Boston',(error,data)=>{
+    if(error)
+    {
+        console.log(error)
     }
-)
+    else
+    {
+        console.log(data)
+    }
+    
+forecast(data.latitude,data.longitude,(err,msg)=>{
+    if(error)
+    {
+        console.log(err)
+    }
+    else
+    {
+        console.log(msg)
+    }
+})
+    
+})
+
