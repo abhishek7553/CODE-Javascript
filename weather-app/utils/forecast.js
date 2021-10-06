@@ -12,10 +12,10 @@ const forecast = (lang,long, callback) => {
             
             callback('Unable to find location!',undefined)
         }else{
+            
+            message =  response.body.current.weather_descriptions[0]+'. It is '+response.body.current.temperature+' degree Fahrenheit out. There is '+response.body.current.precip+'% chance of rain.'
             callback(undefined,{
-                desc:response.body.current.weather_descriptions[0],
-                temp:response.body.current.temperature,
-                deg:response.body.current.precip
+                forecast : message
             })
         }
     })
