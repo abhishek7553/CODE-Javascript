@@ -51,7 +51,13 @@ router.patch('/tasks/:id',async (req,res)=>{
         res.status(400).send({error: 'Bad Update!'})
     }
     try{
-        const  t = await Task.findByIdAndUpdate(req.params.id, req.body, {new:true ,runValidators:true})
+        const task = await Task.findById(req.param.id)
+
+        updates.forEach((u)=>{
+            task[u]=req.body[u]
+        })
+        await task.save()
+       // const  t = await Task.findByIdAndUpdate(req.params.id, req.body, {new:true ,runValidators:true})
         if(!t){
             return res.status(404).send()
         }
