@@ -49,6 +49,17 @@ const userSchema = new mongoose.Schema({
     }]
 })
 
+userSchema.methods.toJSON = async function(){
+    const user = this
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+
+}
+
 userSchema.methods.generateAuthToken = async function(){
     const user = this
 
@@ -68,7 +79,7 @@ userSchema.statics.findByCredentials = async (email,password) => {
     if(!match){
         throw new Error('Unable to login')
     }
-     
+    console.log(user) 
     return user
 }
 

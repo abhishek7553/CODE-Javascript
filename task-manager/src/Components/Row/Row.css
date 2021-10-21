@@ -1,0 +1,13 @@
+.MuiTableCell-head {
+    background-color: #2d4250 !important;
+    color: #97A1A9 !important;
+}
+
+.MuiTableCell-body {
+    background-color: #2d4250 !important;
+    color: white !important;
+}
+
+.MuiTableContainer-root {
+    border-radius: 0 !important;
+}

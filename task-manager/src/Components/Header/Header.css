@@ -1,0 +1,12 @@
+.header {
+    text-align: center;
+}
+
+.header__logo {
+    top: 22px;
+    left: 843px;
+    width: 235px;
+    height: 50px;
+    opacity: 1;
+    background-color: #3a4a5f;
+}
